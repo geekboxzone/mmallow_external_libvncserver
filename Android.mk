@@ -7,12 +7,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/include \
                     $(LOCAL_PATH)/libvncserver \
                     $(LOCAL_PATH) \
                     $(LOCAL_PATH)/common \
-                    external/zlib \
-                    external/libpng \
-                    external/openssl/include \
                     external/jpeg
-
-common_static_libraries := libz libpng libjpeg_static libssl_static
 
 LOCAL_SRC_FILES := libvncserver/auth.c \
                    libvncserver/cargs.c \
@@ -46,9 +41,9 @@ LOCAL_SRC_FILES := libvncserver/auth.c \
                    common/sha1.c \
                    common/turbojpeg.c \
                    common/vncauth.c \
-                   test/bmp.c 
+                   test/bmp.c
 
-LOCAL_STATIC_LIBRARIES :=
+LOCAL_STATIC_LIBRARIES := libz libpng libjpeg_static libssl_static
 LOCAL_CFLAGS := -D__ANDROID__ -DHAVE_LIBSSL -DWITH_WEBSOCKETS
 
 #LOCAL_SDK_VERSION := 14
